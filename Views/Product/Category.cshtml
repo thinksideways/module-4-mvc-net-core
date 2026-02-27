@@ -1,0 +1,22 @@
+@{
+    Layout = "_Layout";
+}
+
+@using Northwind.Models
+@model IEnumerable<Category>
+
+<div class="container">
+
+    <div class="row mt-4 mb-2">
+        <div class="col-md-12 col-sm-12">
+            <ul>
+                @foreach (Category category in Model)
+                {
+                    <li>
+                        <h3>@category.CategoryName - @category.Description</h3>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
