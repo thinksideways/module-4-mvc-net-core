@@ -12,6 +12,8 @@ builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(confi
 
 var app = builder.Build();
 
+app.UsePathBase("/northwind");
+
 app.UseHttpsRedirection();
 app.UseRouting();
 

@@ -1,0 +1,33 @@
+@{
+    Layout = "_Layout";
+}
+
+
+@using Northwind.Models
+@model IEnumerable<Product>
+
+<div class="container">
+
+    <div class="row mt-4 mb-2">
+        <div class="col-md-12 col-sm-12">
+            <a href="@Url.Action("Category", "Product")">Back to Categories</a>
+            <table class="table">
+                <thead>
+                    <th>Product Name</th>
+                    <th>Unit Price</th>
+                    <th>Units In Stock</th>
+                </thead>
+                <tbody>
+                @foreach (Product product in Model)
+                {
+                    <tr>
+                        <td>@product.ProductName</td>
+                        <td>@Math.Round(product.UnitPrice, 2)</td>
+                        <td>@product.UnitsInStock</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

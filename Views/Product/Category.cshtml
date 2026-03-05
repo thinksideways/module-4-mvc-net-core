@@ -9,11 +9,11 @@
 
     <div class="row mt-4 mb-2">
         <div class="col-md-12 col-sm-12">
-            <ul>
+            <ul class="list-group">
                 @foreach (Category category in Model)
                 {
-                    <li>
-                        <h3>@category.CategoryName - @category.Description</h3>
+                    <li class="list-group-item">
+                        <a href="@Url.Action("Index", "Product", new {categoryId = category.CategoryId})">@category.CategoryName - @category.Description</a>
                     </li>
                 }
             </ul>
