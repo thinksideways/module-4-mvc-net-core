@@ -14,6 +14,8 @@ var app = builder.Build();
 
 app.UsePathBase("/northwind");
 
+app.UseStaticFiles();
+
 app.UseHttpsRedirection();
 app.UseRouting();
 
