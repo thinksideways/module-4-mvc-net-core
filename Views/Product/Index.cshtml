@@ -23,7 +23,7 @@
                     <tr>
                         <td>@product.ProductName</td>
                         <td>@Math.Round(product.UnitPrice, 2)</td>
-                        <td>@product.UnitsInStock</td>
+                        <td class="@(product.UnitsInStock > 0 ? "text-success" : "text-danger")">@product.UnitsInStock</td>
                     </tr>
                 }
                 </tbody>

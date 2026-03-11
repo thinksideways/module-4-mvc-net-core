@@ -1,6 +1,9 @@
 @{
     Layout = "_Layout";
 }
+
+@model IEnumerable<Discount>
+
 <div class="container-fluid">
     <div class="row mb-2">
         <div class="col-md-12 col-sm-12">
@@ -18,52 +21,32 @@
             </div>
         </div>
     </div>
-    <div class="row mb-2">
-        <div class="col-md-4 col-sm-12">
-            <div class="p-4 m-2 mt-4 rounded-1 border border-secondary-subtle h-100">
-                <h3>Tis the seasoning</h3>
-                <div class="mb-4">
-                Order today! Pay 12.5% over market on Chef Anton's Italian Seasoning!
-                You don't want to make Chef Anton mad, do you (he'll come at you in your sleep)?
-                </div>
-                <i>Discount expires: 2/25/2027</i><br />
-                <a class="discount-toast" data-product="Chef Anton's Italian Seasoning" data-discountcode="1234" data-discounttitle="12.5% Over" href="#">Discount Code</a>
+    <div class="p-2 m-2 row row-cols-1 row-cols-lg-3 featured" id="discount-row">
+        @foreach (Discount d in Model)
+        {
+            <div class="col-md-4 col-sm-12 discounts px-2 py-4">
+                    <div class="p-4 m-2 mt-4 rounded-1 border border-secondary-subtle">
+                    <h4>@d.Title</h4>
+                    <div class="mb-4">
+                        @d.Description
+                    </div>
+                    <i>Discount expires: @d.EndTime.ToString("MM/dd/yyyy")</i><br />
+                    <a href="#" data-code="@d.Code" data-title="@d.Title" data-product="@d.Product.ProductName" class="discount"><i class="far fa-hand-point-right"></i> Discount Code</a>
+                </div>      
             </div>
-        </div>
-        <div class="col-md-4 col-sm-12">
-            <div class="p-4 m-2 mt-4 rounded-1 border border-secondary-subtle h-100">
-                <h3>For the roasters</h3>
-                <div class="mb-4">
-                Order today! Pay 22.5% over market on Barista Bill's Italian Roast!
-                You don't want to make Barista Bill mad, do you (he'll come at you in your sleep too)?
-                </div>
-                <i>Discount expires: 2/25/2027</i><br />
-                <a class="discount-toast" data-product="Barista Bill's Italian Roast" data-discountcode="1235" data-discounttitle="22.5% Over" href="#">Discount Code</a>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-12">
-            <div class="p-4 m-2 mt-4 rounded-1 border border-secondary-subtle h-100">
-                <h3>It's 5 o'clock somewhere!</h3>
-                <div class="mb-4">
-                Order today! Pay 42.5% over market on Brewery Barry's IPA!
-                You don't want to make Brewery Barry mad, do you (he'll come at you in your sleep too and he's ragefully drunk)?
-                </div>
-                <i>Discount expires: 2/25/2027</i><br />
-                <a class="discount-toast" data-product="Brewery Barry's IPA" data-discountcode="1236" data-discounttitle="42.5% Over" href="#">Discount Code</a>
-            </div>
-        </div>
+        }
     </div>
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
-                data-bs-autohide="false">
-            <div class="toast-header">
-                <strong class="me-auto"></strong>
-                <small class="text-body-secondary"></small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-
+        <!-- toast -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto" id="product">Product</strong>
+                    <small class="text-body-secondary" id="title">just now</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Discount Code: <span id="code">Code</span>
+                </div>
             </div>
         </div>
-    </div>
 </div>
