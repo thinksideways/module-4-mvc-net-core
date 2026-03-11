@@ -1,0 +1,22 @@
+@{
+    Layout = "_Layout";
+}
+
+@using Northwind.Models
+@model IEnumerable<Discount>
+<div class="container-fluid">
+    <div class="row mt-4 mb-2">
+        <div class="col-md-12 col-sm-12">
+            <ul class="list-group">
+                @foreach (Discount discount in Model)
+                {
+                <li class="list-group-item">
+                        <strong class=>@discount.Title</strong> <br /> @discount.Description <br />
+                        Valid From @discount.StartTime.ToString("MM/dd/yyyy") to
+                        @discount.EndTime.ToString("MM/dd/yyyy") using code <em>@discount.Code</em>
+                </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
