@@ -1,1 +1,7 @@
-/* yolo */
+/* mobile first so only applying desktop styles at a min-width */
+@media (min-width: 767.98px) {
+    #customer-registration {
+        width: 50%;
+        margin: 0 auto;
+    }
+}
