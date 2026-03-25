@@ -12,7 +12,6 @@ namespace Northwind.Controllers
         public ActionResult Index()
         {
             var customers = _dataContext.Customers.OrderBy(c => c.CompanyName);
-            // var customers = _dataContext.Customers.Where(c => !c.CompanyName.Equals(null)).OrderBy(c => c.CompanyName);
             return View(customers);
         }
         

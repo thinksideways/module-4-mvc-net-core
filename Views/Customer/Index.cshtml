@@ -8,12 +8,13 @@
 <div class="container">
     <div class="row mt-4 mb-2">
         <div class="col-md-12 col-sm-12">
-            <table class="table">
+            <h4 class="mb-4">Northwind Customers</h4>
+            <table class="table" class="mb-4">
                 <thead>
                     <th>Company</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Fax</th>
+                    <th><i class="bi bi-house"></i> Address</th>
+                    <th><i class="bi bi-telephone"></i> Phone</th>
+                    <th><i class="bi bi-printer"></i> Fax</th>
                 </thead>
                 <tbody>
                     @foreach (Customer customer in Model)
@@ -27,6 +28,7 @@
                     }
                 </tbody>
             </table>
+            <a href="@Url.Action("Register", "Customer")">Add New</a>
         </div>
     </div>
 </div>
